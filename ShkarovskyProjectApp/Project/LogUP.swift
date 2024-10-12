@@ -108,12 +108,14 @@ struct LogUp: View {
                     }
                 }
                 .padding(5)
-                .padding([.leading, .trailing], 20)
+                .padding([.leading, .trailing], 15)
                 HStack(spacing: 15) {
                     CheckBoxView(isActive: $checkBoxValue)
                         .onChange(of: checkBoxValue) {
                             checkAllFields()
+                            
                         }
+                        .padding(.bottom)
                     Text("By ticking this box, you agree to our \(Text("Terms and conditions and private policy").foregroundColor(.yellow))")
                         .font(.custom("Roboto-Regular", size: 14))
                         .foregroundColor(Color.myGray)
@@ -121,7 +123,8 @@ struct LogUp: View {
                         .frame(width: .infinity, height: 50)
                         .truncationMode(/*@START_MENU_TOKEN@*/.tail/*@END_MENU_TOKEN@*/)
                 }
-                .padding([.top, .bottom], 15)
+                .padding(.vertical, 30)
+                .padding(.trailing)
                 
                 NavigationLink(destination: LogIn(),
                                isActive: $userViewModel.isNavigate) {
